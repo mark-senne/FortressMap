@@ -1,0 +1,218 @@
+<html>
+<style>
+	.circle {
+	  position: absolute;
+	  height: 45px;
+	  width: 45px;
+	  border: yellow 20px solid;
+	  border-radius: 50%;
+	  display: none;
+	}
+</style>
+
+<div id="circle" class="circle"></div>
+
+<script>
+var filter = (node) => {
+	let val = node.value;
+	let options = document.querySelectorAll("#land option");
+	let first;
+	[].forEach.call(options, o => {
+		let match = o.value.indexOf(val) > -1;
+		o.style.display = match ? "block" : "none"
+		first = match && !first ? o.value : first;
+	})
+	document.getElementById("land").value = first;
+	select(document.getElementById("land"));
+}
+var select = (node) => {
+	let c = document.getElementById("circle");
+	let o = node.selectedOptions[0];
+	if (o) {
+		c.style.top = o.dataset.x * 1 + 10;
+		c.style.left = o.dataset.y * 1 + 12;
+		c.style.display = "block";
+	} else c.style.display = "none";
+}
+</script>
+<input name="filter" id="filter" onkeyup="filter(this)" />
+<select name="land" id="land" onchange="select(this)">
+<option value="Washington" data-x="40" data-y="20"></option>
+<option value="New Orleans" data-x="110" data-y="129"></option>
+<option value="San Francisco" data-x="176" data-y="10"></option>
+<option value="Cleveland" data-x="230" data-y="109"></option>
+<option value="Damascus" data-x="328" data-y="94"></option>
+<option value="Sanaa" data-x="408" data-y="7"></option>
+<option value="Hattin" data-x="424" data-y="119"></option>
+<option value="Jeddah" data-x="525" data-y="4"></option>
+<option value="Halab" data-x="552" data-y="143"></option>
+<option value="Eretria" data-x="585" data-y="36"></option>
+<option value="Miletos" data-x="621" data-y="120"></option>
+<option value="Salvados da Bahia" data-x="665" data-y="10"></option>
+<option value="Brasilia" data-x="687" data-y="206"></option>
+<option value="Recife" data-x="719" data-y="125"></option>
+<option value="Curutiba" data-x="779" data-y="21"></option>
+<option value="Guarulhos" data-x="853" data-y="119"></option>
+<option value="Otsu" data-x="933" data-y="27"></option>
+<option value="Hakodate" data-x="1021" data-y="175"></option>
+<option value="Morioka" data-x="1033" data-y="70"></option>
+<option value="Agra" data-x="1123" data-y="24"></option>
+<option value="Ra-Kedet" data-x="1125" data-y="115"></option>
+<option value="Thebes" data-x="1125" data-y="220"></option>
+<option value="Kyoto" data-x="1213" data-y="183"></option>
+<option value="Madurai" data-x="1215" data-y="45"></option>
+<option value="Sais" data-x="1291" data-y="155"></option>
+<option value="Abydos" data-x="1282" data-y="329"></option>
+<option value="Hyderabad" data-x="1216" data-y="398"></option>
+<option value="Memphis" data-x="1123" data-y="345"></option>
+<option value="Kobe" data-x="1014" data-y="297"></option>
+<option value="Calcutta" data-x="974" data-y="394"></option>
+<option value="Mumbai" data-x="895" data-y="311"></option>
+<option value="Aomori" data-x="929" data-y="238"></option>
+<option value="Nagano" data-x="841" data-y="230"></option>
+<option value="Dehli" data-x="794" data-y="278"></option>
+<option value="Aachen" data-x="812" data-y="411"></option>
+<option value="Amboise" data-x="722" data-y="373"></option>
+<option value="Brasilia" data-x="675" data-y="210"></option>
+<option value="Kwango" data-x="612" data-y="316"></option>
+<option value="Bremen" data-x="531" data-y="363"></option>
+<option value="Rio de Janeiro" data-x="511" data-y="243"></option>
+<option value="Dortmund" data-x="448" data-y="199"></option>
+<option value="Nuremburg" data-x="418" data-y="315"></option>
+<option value="Bradford" data-x="433" data-y="420"></option>
+<option value="Augsburg" data-x="318" data-y="337"></option>
+<option value="Sparta" data-x="183" data-y="344"></option>
+<option value="Baghdad" data-x="309" data-y="210"></option>
+<option value="Ephesus" data-x="153" data-y="224"></option>
+<option value="Corinth" data-x="148" data-y="281"></option>
+<option value="Los Angeles" data-x="106" data-y="377"></option>
+<option value="Cincinnati" data-x="53" data-y="241"></option>
+<option value="New York" data-x="40" data-y="420"></option>
+<option value="Philadelphia" data-x="35" data-y="582"></option>
+<option value="St. Louis" data-x="116" data-y="569"></option>
+<option value="Cairo" data-x="194" data-y="635"></option>
+<option value="Argos" data-x="229" data-y="546"></option>
+<option value="Houton" data-x="173" data-y="482"></option>
+<option value="Bristol" data-x="340" data-y="503"></option>
+<option value="Rouen" data-x="543" data-y="540"></option>
+<option value="Toulouse" data-x="616" data-y="507"></option>
+<option value="Nantes" data-x="738" data-y="532"></option>
+<option value="Cologne" data-x="856" data-y="602"></option>
+<option value="Mainz" data-x="964" data-y="531"></option>
+<option value="Megara" data-x="1057" data-y="539"></option>
+<option value="Chennai" data-x="1100" data-y="457"></option>
+<option value="Apu" data-x="1289" data-y="488"></option>
+<option value="Jabalpur" data-x="1289" data-y="610"></option>
+<option value="Tokyo" data-x="1207" data-y="535"></option>
+<option value="Osaka" data-x="1227" data-y="671"></option>
+<option value="Shedet" data-x="1126" data-y="733"></option>
+<option value="Akhetaten" data-x="1120" data-y="585"></option>
+<option value="Patna" data-x="1072" data-y="633"></option>
+<option value="Hamamatsu" data-x="1035" data-y="711"></option>
+<option value="Nagoya" data-x="994" data-y="620"></option>
+<option value="Frankfurt" data-x="852" data-y="727"></option>
+<option value="Mbuji-Mayi" data-x="782" data-y="747"></option>
+<option value="Trier" data-x="580" data-y="693"></option>
+<option value="Eden" data-x="657" data-y="745"></option>
+<option value="Ulm" data-x="656" data-y="610"></option>
+<option value="Paris" data-x="446" data-y="749"></option>
+<option value="Stroke-upon-Trent" data-x="457" data-y="633"></option>
+<option value="Plymouth" data-x="306" data-y="688"></option>
+<option value="Pharsalos" data-x="226" data-y="722"></option>
+<option value="Chicago" data-x="117" data-y="712"></option>
+<option value="Bosten" data-x="29" data-y="735"></option>
+<option value="Baltimore" data-x="17" data-y="926"></option>
+<option value="Buffalo" data-x="101" data-y="821"></option>
+<option value="Rhodes" data-x="108" data-y="996"></option>
+<option value="Mycenae" data-x="161" data-y="925"></option>
+<option value="Knossos" data-x="189" data-y="1012"></option>
+<option value="Detroit" data-x="257" data-y="1009"></option>
+<option value="Rub'al Khali" data-x="240" data-y="922"></option>
+<option value="Kavir" data-x="204" data-y="819"></option>
+<option value="Athens" data-x="314" data-y="864"></option>
+<option value="Ravenna" data-x="373" data-y="924"></option>
+<option value="Lyon" data-x="449" data-y="840"></option>
+<option value="Berlin" data-x="532" data-y="748"></option>
+<option value="Hamburg" data-x="718" data-y="829"></option>
+<option value="Heidelberg" data-x="836" data-y="900"></option>
+<option value="Magdeburg" data-x="854" data-y="818"></option>
+<option value="Okazaki" data-x="1005" data-y="829"></option>
+<option value="Fukuoka" data-x="1034" data-y="883"></option>
+<option value="iwnw" data-x="1116" data-y="945"></option>
+<option value="Ahmadabad" data-x="1185" data-y="846"></option>
+<option value="Srinagar" data-x="1234" data-y="800"></option>
+<option value="Mysore" data-x="1286" data-y="762"></option>
+<option value="Liverpool" data-x="1274" data-y="897"></option>
+<option value="Sendai" data-x="1291" data-y="1059"></option>
+<option value="Manchester" data-x="1222" data-y="1021"></option>
+<option value="Swenett" data-x="1152" data-y="1070"></option>
+<option value="Fukui" data-x="1053" data-y="1021"></option>
+<option value="Cumae" data-x="953" data-y="996"></option>
+<option value="Rennes" data-x="765" data-y="975"></option>
+<option value="Calais" data-x="733" data-y="1059"></option>
+<option value="Mbanza Mpangu" data-x="656" data-y="892"></option>
+<option value="La Rochelle" data-x="653" data-y="1079"></option>
+<option value="Bordeaux" data-x="528" data-y="954"></option>
+<option value="Marseille" data-x="525" data-y="1092"></option>
+<option value="Newcastle" data-x="422" data-y="1028"></option>
+<option value="Damiella" data-x="434" data-y="1115"></option>
+<option value="Olympia" data-x="267" data-y="1083"></option>
+<option value="Oslo" data-x="153" data-y="1088"></option>
+<option value="Nidaros" data-x="55" data-y="1130"></option>
+<option value="Charleston" data-x="47" data-y="1274"></option>
+<option value="Bergen" data-x="127" data-y="1216"></option>
+<option value="Alesund" data-x="239" data-y="1255"></option>
+<option value="Aleppo" data-x="309" data-y="1169"></option>
+<option value="Rome" data-x="442" data-y="1231"></option>
+<option value="Hamar" data-x="496" data-y="1295"></option>
+<option value="Kinchassa" data-x="533" data-y="1177"></option>
+<option value="Fortaleza" data-x="629" data-y="1171"></option>
+<option value="Mbanza Nsundi" data-x="693" data-y="1245"></option>
+<option value="Antium" data-x="758" data-y="1187"></option>
+<option value="Aquileia" data-x="874" data-y="1110"></option>
+<option value="Sheffield" data-x="846" data-y="1218"></option>
+<option value="Yamagata" data-x="1029" data-y="1238"></option>
+<option value="Shizuka" data-x="1004" data-y="1131"></option>
+<option value="Okayama" data-x="1091" data-y="1172"></option>
+<option value="Takamatsu" data-x="1191" data-y="1210"></option>
+<option value="Birmingham" data-x="1290" data-y="1190"></option>
+<option value="Leeds" data-x="1297" data-y="1327"></option>
+<option value="Gifu" data-x="1191" data-y="1344"></option>
+<option value="Yokohama" data-x="1165" data-y="1396"></option>
+<option value="Nekhen" data-x="1109" data-y="1422"></option>
+<option value="Kagoshima" data-x="1066" data-y="1364"></option>
+<option value="Mbamba" data-x=":top: 941" data-y="1369"></option>
+<option value="London" data-x="930" data-y="1253"></option>
+<option value="Mbumbi" data-x="850" data-y="1299"></option>
+<option value="Mbwila" data-x="812" data-y="1380"></option>
+<option value="Porto Alegre" data-x="707" data-y="1347"></option>
+<option value="Mpinda" data-x="607" data-y="1284"></option>
+<option value="Kwila" data-x="611" data-y="1377"></option>
+<option value="Mbanza Mbata" data-x="527" data-y="1355"></option>
+<option value="Sao Paulo" data-x="482" data-y="1416"></option>
+<option value="Ostia" data-x="323" data-y="1359"></option>
+<option value="Tromso" data-x="217" data-y="1389"></option>
+<option value="Sarpsborg" data-x="138" data-y="1338"></option>
+<option value="Kristiansand" data-x="55" data-y="1390"></option>
+<option value="Stavangar" data-x="111" data-y="1473"></option>
+<option value="Skeds" data-x="244" data-y="1491"></option>
+<option value="Pergamon" data-x="374" data-y="1446"></option>
+<option value="Manaus" data-x="593" data-y="1486"></option>
+<option value="Belem" data-x="712" data-y="1471"></option>
+<option value="Takasaki" data-x="804" data-y="1497"></option>
+<option value="Fukushima" data-x="941" data-y="1466"></option>
+<option value="Homs" data-x="1029" data-y="1495"></option>
+<option value="Mbanza Kong" data-x="1236" data-y="1488"></option>
+</select>
+<br/>
+<script>
+let options = document.querySelectorAll("#land option");
+let sorted = [].slice.call(options, 0).sort((o1, o2) => o1.value < o2.value ? -1:1);
+[].forEach.call(options, o => o.remove() );
+sorted.forEach(o => {
+	o.innerHTML = o.value;
+	document.getElementById("land").append(o);
+});
+</script>
+<img src="map_33.png">
+</html>
