@@ -15,10 +15,11 @@
 <script>
 var filter = (node) => {
 	let val = node.value;
+	if (!val) return;
 	let options = document.querySelectorAll("#land option");
 	let first;
 	[].forEach.call(options, o => {
-		let match = o.value.indexOf(val) > -1;
+		let match = o.value.toLowerCase().indexOf(val.toLowerCase()) > -1;
 		o.style.display = match ? "block" : "none"
 		first = match && !first ? o.value : first;
 	})
@@ -34,9 +35,9 @@ var select = (node) => {
 		c.style.display = "block";
 	} else c.style.display = "none";
 }
-</script>
-<input name="filter" id="filter" onkeyup="filter(this)" />
-<select name="land" id="land" onchange="select(this)">
+</script><h2 style="float:left; margin: 0">Search:</h2>&emsp;
+<input style="height: 2em" name="filter" id="filter" onkeyup="filter(this)" />
+<select style="height: 2em" name="land" id="land" onchange="select(this)">
 <option value="Washington" data-x="40" data-y="20"></option>
 <option value="New Orleans" data-x="110" data-y="129"></option>
 <option value="San Francisco" data-x="176" data-y="10"></option>
@@ -204,7 +205,7 @@ var select = (node) => {
 <option value="Homs" data-x="1029" data-y="1495"></option>
 <option value="Mbanza Kong" data-x="1236" data-y="1488"></option>
 </select>
-<br/>
+<div style="clear:both"></div>
 <script>
 let options = document.querySelectorAll("#land option");
 let sorted = [].slice.call(options, 0).sort((o1, o2) => o1.value < o2.value ? -1:1);
