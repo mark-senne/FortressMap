@@ -30,8 +30,8 @@ var select = (node) => {
   let c = document.getElementById("circle");
   let o = node.selectedOptions[0];
   if (o) {
-    c.style.top = o.dataset.x * 1 + 10;
-    c.style.left = o.dataset.y * 1 + 12;
+    c.style.top = o.dataset.x * 22/34 + 10;
+    c.style.left = o.dataset.y * 22/35 + 12;
     c.style.display = "block";
   } else c.style.display = "none";
 }
@@ -223,5 +223,5 @@ if (q) {
   filter(f);
 }
 </script>
-<img src="map_33.png">
+<img src="map_25.jpg">
 </html>
