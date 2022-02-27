@@ -214,6 +214,14 @@ sorted.forEach(o => {
 	o.innerHTML = o.value;
 	document.getElementById("land").append(o);
 });
+
+let q = document.location.search;
+if (q) { 
+	let t = q.split(/[?&]/)[1];
+	let f = document.getElementById("filter");
+	f.value = t;
+	filter(f);
+}
 </script>
 <img src="map_33.png">
 </html>
