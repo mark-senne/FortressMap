@@ -1,39 +1,39 @@
 <html>
 <style>
-	.circle {
-	  position: absolute;
-	  height: 45px;
-	  width: 45px;
-	  border: yellow 20px solid;
-	  border-radius: 50%;
-	  display: none;
-	}
+  .circle {
+    position: absolute;
+    height: 45px;
+    width: 45px;
+    border: yellow 20px solid;
+    border-radius: 50%;
+    display: none;
+  }
 </style>
 
 <div id="circle" class="circle"></div>
 
 <script>
 var filter = (node) => {
-	let val = node.value;
-	if (!val) return;
-	let options = document.querySelectorAll("#land option");
-	let first;
-	[].forEach.call(options, o => {
-		let match = o.value.toLowerCase().indexOf(val.toLowerCase()) > -1;
-		o.style.display = match ? "block" : "none"
-		first = match && !first ? o.value : first;
-	})
-	document.getElementById("land").value = first;
-	select(document.getElementById("land"));
+  let val = node.value;
+  if (!val) return;
+  let options = document.querySelectorAll("#land option");
+  let first;
+  [].forEach.call(options, o => {
+    let match = o.value.toLowerCase().indexOf(val.toLowerCase()) > -1;
+    o.style.display = match ? "block" : "none"
+    first = match && !first ? o.value : first;
+  })
+  document.getElementById("land").value = first;
+  select(document.getElementById("land"));
 }
 var select = (node) => {
-	let c = document.getElementById("circle");
-	let o = node.selectedOptions[0];
-	if (o) {
-		c.style.top = o.dataset.x * 1 + 10;
-		c.style.left = o.dataset.y * 1 + 12;
-		c.style.display = "block";
-	} else c.style.display = "none";
+  let c = document.getElementById("circle");
+  let o = node.selectedOptions[0];
+  if (o) {
+    c.style.top = o.dataset.x * 1 + 10;
+    c.style.left = o.dataset.y * 1 + 12;
+    c.style.display = "block";
+  } else c.style.display = "none";
 }
 </script><h2 style="float:left; margin: 0">Search:</h2>&emsp;
 <input style="height: 2em" name="filter" id="filter" onkeyup="filter(this)" />
@@ -211,16 +211,16 @@ let options = document.querySelectorAll("#land option");
 let sorted = [].slice.call(options, 0).sort((o1, o2) => o1.value < o2.value ? -1:1);
 [].forEach.call(options, o => o.remove() );
 sorted.forEach(o => {
-	o.innerHTML = o.value;
-	document.getElementById("land").append(o);
+  o.innerHTML = o.value;
+  document.getElementById("land").append(o);
 });
 
 let q = document.location.search;
 if (q) { 
-	let t = q.split(/[?&]/)[1];
-	let f = document.getElementById("filter");
-	f.value = t;
-	filter(f);
+  let t = q.split(/[?&]/)[1];
+  let f = document.getElementById("filter");
+  f.value = t;
+  filter(f);
 }
 </script>
 <img src="map_33.png">
